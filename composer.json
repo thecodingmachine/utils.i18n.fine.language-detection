@@ -21,7 +21,7 @@
     "require": {
     	"php": ">=5.3.0",
     	"mouf/mouf-installer": "~2.0",
-    	"mouf/utils.i18n.translation-interface": "~4.0",
+    	"mouf/utils.i18n.translation-interface": "~4.0"
     },
     "autoload": {
         "psr-0": {
