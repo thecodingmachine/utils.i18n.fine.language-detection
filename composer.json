@@ -2,7 +2,7 @@
     "name": "mouf/utils.i18n.fine.language-detection",
     "description": "Language detection is a PHP internationalisation package, it depends of translation-interface. This package contain many class to return a language select for internationalisation. It's could be with : Browser detection, fix language, data set in session, a link between domain name and language or a cascading of many solutions. The language can be used to translate message in fin or whatever.",
     "keywords": ["i18n", "internationalisation", "language", "detection"],
-    "homepage": "https://github.com/thecodingmachine/utils.i18n.fine.language-detection",
+    "homepage": "https://mouf-php.com/mouf/utils.i18n.fine.language-detection",
     "type": "mouf-library",
     "license": "MIT",
     "authors": [
@@ -24,18 +24,19 @@
     	"mouf/utils.i18n.fine.translation-interface": "~4.0"
     },
     "autoload": {
-        "psr-0": {
-            "Mouf": "src/"
+        "psr-4": {
+            "Mouf\\Utils\\I18n\\Fine\\Language\\": "src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
 	    "mouf": {
 	    	"install": [
-		    	{
-		    		"type": "file",
-		    		"file": "src/install.php"
-		    	}
+	                {
+		                "type": "class",
+		                "class": "Mouf\\Utils\\I18n\\Fine\\Language\\FineLanguageInstaller",
+		                "description": "This installer will create a default language detection of a cascading detector and it set a fix language en by default"
+	                }
 	    	]
 	    }
 	}

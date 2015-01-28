@@ -1,12 +1,12 @@
 <?php 
 /*
- * Copyright (c) 2012 David Negrier
+ * Copyright (c) 2012-2015 Marc TEYSSIER
  * 
  * See the file LICENSE.txt for copying permission.
  */
-namespace Mouf\Utils\I18n\Fine;
+namespace Mouf\Utils\I18n\Fine\Language;
 
-use Mouf\Utils\I18n\LanguageDetectionInterface;
+use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
 
 /**
  * Use fixed language detection if you want to always use the same language in your application.
@@ -14,7 +14,7 @@ use Mouf\Utils\I18n\LanguageDetectionInterface;
  * language.
  * Use the setLanguage method to set the language it will return.
  * 
- * @author David Negrier
+ * @author Marc TEYSSIER
  * @Component
  */
 class SessionLanguageDetection implements LanguageDetectionInterface {
@@ -31,7 +31,7 @@ class SessionLanguageDetection implements LanguageDetectionInterface {
 	/**
 	 * Returns the language to use.
 	 * 
-	 * @see plugins/utils/i18n/fine/2.1/language/LanguageDetectionInterface::getLanguage()
+	 * @see \Mouf\Utils\I18n\Fine\LanguageDetectionInterface::getLanguage()
 	 * @return string
 	 */
 	public function getLanguage() {

@@ -1,28 +1,32 @@
 <?php 
 /*
- * Copyright (c) 2012 David Negrier
+ * Copyright (c) 2012-2015 Marc TEYSSIER
  * 
  * See the file LICENSE.txt for copying permission.
  */
-namespace Mouf\Utils\I18n\Fine;
+namespace Mouf\Utils\I18n\Fine\Language;
 
-use Mouf\Utils\I18n\LanguageDetectionInterface;
+use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
 
 /**
- * Use a language code for each domain you
+ * Use to force the language code for domains
  * 
- * @author Marc Teyssier
+ * @author Marc TEYSSIER
  * @Component
  */
 class DomainLanguageDetection implements LanguageDetectionInterface {
 	
+	/**
+	 * Save the list of domains to language
+	 * @var array<string, string>
+	 */
 	private $domains = array();
 	
 	/**
 	 * Returns the language used for the domain name.
 	 * Check if the value exit in keys array. If this value doesn't exist, the function return null.
 	 * 
-	 * @see plugins/utils/i18n/fine/2.1/language/LanguageDetectionInterface::getLanguage()
+	 * @see \Mouf\Utils\I18n\Fine\LanguageDetectionInterface::getLanguage()
 	 * @return string Language code store in array
 	 */
 	public function getLanguage() {
@@ -44,7 +48,7 @@ class DomainLanguageDetection implements LanguageDetectionInterface {
 	 * @Property
 	 * @param array<string, string> $domains Key is domain name, value is translation code
 	 */
-	public function setDomains($domains) {
+	public function setDomains(array $domains) {
 		$this->domains = $domains;
 	}
 }

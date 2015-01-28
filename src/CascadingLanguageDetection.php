@@ -1,12 +1,12 @@
 <?php 
 /*
- * Copyright (c) 2012 David Negrier
+ * Copyright (c) 2012-2015 Marc TEYSSIER
  * 
  * See the file LICENSE.txt for copying permission.
  */
-namespace Mouf\Utils\I18n\Fine;
+namespace Mouf\Utils\I18n\Fine\Language;
 
-use Mouf\Utils\I18n\LanguageDetectionInterface;
+use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
 
 /**
  * Use cascading language detection if you want to use several language detection patterns
@@ -16,7 +16,7 @@ use Mouf\Utils\I18n\LanguageDetectionInterface;
  * Instead, if this service returns "default" for a language, it will try to use the
  * second language service, etc... 
  * 
- * @author David Negrier
+ * @author Marc TEYSSIER
  * @Component
  */
 class CascadingLanguageDetection implements LanguageDetectionInterface {
@@ -31,13 +31,21 @@ class CascadingLanguageDetection implements LanguageDetectionInterface {
 	 * @Compulsory
 	 * @var array<LanguageDetectionInterface>
 	 */
-	public $languageDetectionServices = array();
+	private $languageDetectionServices = array();
+	
+	/**
+	 * 
+	 * @param array<LanguageDetectionInterface> $languageDetectionServices
+	 */
+	public function __construct(array $languageDetectionServices = array()) {
+		$this->languageDetectionServices = $languageDetectionServices;
+	}
 	
 	/**
 	 * Returns the language to use considering all the LanguageDetection services configured.
 	 * If no language found this return null
 	 * 
-	 * @see plugins/utils/i18n/fine/2.1/language/LanguageDetectionInterface::getLanguage()
+	 * @see \Mouf\Utils\I18n\Fine\LanguageDetectionInterface::getLanguage()
 	 * @return string|null
 	 */
 	public function getLanguage() {
