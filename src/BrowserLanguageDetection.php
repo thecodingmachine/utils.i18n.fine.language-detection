@@ -31,28 +31,11 @@ class BrowserLanguageDetection implements LanguageDetectionInterface {
 	 */
 	public function getLanguage() {
 		if(!$this->language) {
-			// getting http instruction if not provided
-			$str = (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])?$_SERVER['HTTP_ACCEPT_LANGUAGE']:"");
-			// exploding accepted languages
-			$langs=explode(',',$str);
+			$langs = $this->getBrowserLanguage();
 			// creating output list
 			$accepted=array();
 			foreach ($langs as $lang) {
-				$found = [];
-				// parsing language preference instructions
-				// 2_digit_code[-longer_code][;q=coefficient]
-				preg_match('/([a-z]{1,2})(-([a-z0-9]+))?(;q=([0-9\.]+))?/', $lang, $found);
-				// 2 digit lang code
-				$code=isset($found[1])?$found[1]:null;
-				// lang code complement
-				$morecode=isset($found[3])?$found[3]:null;
-				// full lang code
-				$fullcode=$morecode?$code.'-'.$morecode:$code;
-				// coefficient
-				$coef=sprintf('%3.1f',isset($found[5])?$found[5]:'1');
-				// for sorting by coefficient
-				// adding
-				$accepted[]=array('code'=>$code,'coef'=>$coef,'morecode'=>$morecode,'fullcode'=>$fullcode);
+				$accepted[] = $this->extractDataOfLanguage($lang);
 			}
 			// sorting the list by coefficient desc
 			krsort($accepted);
@@ -62,5 +45,41 @@ class BrowserLanguageDetection implements LanguageDetectionInterface {
 		}
 		
 		return $this->language;
+	}
+	
+	/**
+	 * Get all the language detects on the browser
+	 * @return array<string>
+	 */
+	private function getBrowserLanguage() {
+		// getting http instruction if not provided
+		$str = (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])?$_SERVER['HTTP_ACCEPT_LANGUAGE']:"");
+		// exploding accepted languages
+		$langs=explode(',',$str);
+		
+		return $langs;
+	}
+	
+	/**
+	 * Get the language browser data
+	 * @param unknown $lang
+	 * @return array<string, string>
+	 */
+	private function extractDataOfLanguage($lang) {
+		$found = [];
+		// parsing language preference instructions
+		// 2_digit_code[-longer_code][;q=coefficient]
+		preg_match('/([a-z]{1,2})(-([a-z0-9]+))?(;q=([0-9\.]+))?/', $lang, $found);
+		// 2 digit lang code
+		$code = isset($found[1])?$found[1]:null;
+		// lang code complement
+		$morecode = isset($found[3])?$found[3]:null;
+		// full lang code
+		$fullcode = $morecode?$code.'-'.$morecode:$code;
+		// coefficient
+		$coef = sprintf('%3.1f',isset($found[5])?$found[5]:'1');
+		// for sorting by coefficient
+		// adding
+		return array('code'=>$code,'coef'=>$coef,'morecode'=>$morecode,'fullcode'=>$fullcode);
 	}
 }
