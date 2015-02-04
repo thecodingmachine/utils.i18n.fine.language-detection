@@ -18,19 +18,17 @@ class FineLanguageInstaller implements PackageInstallerInterface
     public static function install(MoufManager $moufManager)
     {
 		//language detection service
-		if ($moufManager->instanceExists("fineCascadingTranslator")) {
-			$defaultLanguageDetection = $moufManager->getInstanceDescriptor("fineCascadingTranslator");
-		} else {
-			$fixedEnglishLanguageDetection = $moufManager->createInstance("Mouf\\Utils\\I18n\\Fine\\FixedLanguageDetection");
+		if (!$moufManager->instanceExists("cascadingLanguageDetection")) {
+			$fixedEnglishLanguageDetection = $moufManager->createInstance("Mouf\\Utils\\I18n\\Fine\\Language\\FixedLanguageDetection");
 			$fixedEnglishLanguageDetection->setName("fixedEnglishLanguageDetection");
 			$fixedEnglishLanguageDetection->getProperty("language")->setValue('en');
 			
-			$defaultLanguageDetection = $moufManager->createInstance("Mouf\\Utils\\I18n\\Fine\\CascadingLanguageDetection");
+			$defaultLanguageDetection = $moufManager->createInstance("Mouf\\Utils\\I18n\\Fine\\Language\\CascadingLanguageDetection");
 			$defaultLanguageDetection->setName("cascadingLanguageDetection");
-			$defaultLanguageDetection->getProperty("languageDetectionServices")->setValue(array($fixedEnglishLanguageDetection));	
+			$defaultLanguageDetection->getProperty("languageDetectionServices")->setValue(array($fixedEnglishLanguageDetection));
+
+			// Let's rewrite the MoufComponents.php file to save the component
+			$moufManager->rewriteMouf();
 		}
-		
-		// Let's rewrite the MoufComponents.php file to save the component
-		$moufManager->rewriteMouf();
     }
 }
