@@ -1,5 +1,6 @@
 Internationalisation with FINE
 ==============================
+![crutinizer](https://scrutinizer-ci.com/g/thecodingmachine/utils.i18n.fine.language-detection/badges/quality-score.png?b=4.0)
 
 Language detection is a PHP internationalisation package, it depends of translation-interface package.
 This package contains many class to return the selected language for internationalisation.
