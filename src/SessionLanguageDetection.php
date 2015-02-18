@@ -19,14 +19,6 @@ use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
 class SessionLanguageDetection implements LanguageDetectionInterface {
 	
 	/**
-	 * The language that will be returned.
-	 * 
-	 * @Property
-	 * @var string|null
-	 */
-	private $language = null;
-	
-	/**
 	 * Returns the language to use.
 	 * 
 	 * @see \Mouf\Utils\I18n\Fine\LanguageDetectionInterface::getLanguage()

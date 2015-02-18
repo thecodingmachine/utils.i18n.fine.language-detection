@@ -27,7 +27,6 @@ class CascadingLanguageDetection implements LanguageDetectionInterface {
 	 * the process will stop.
 	 * 
 	 * @Property
-	 * @Compulsory
 	 * @var array<LanguageDetectionInterface>
 	 */
 	private $languageDetectionServices = array();
