@@ -17,7 +17,6 @@ use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
  * second language service, etc... 
  * 
  * @author Marc TEYSSIER
- * @Component
  */
 class CascadingLanguageDetection implements LanguageDetectionInterface {
 	
@@ -60,5 +59,4 @@ class CascadingLanguageDetection implements LanguageDetectionInterface {
 		}
 		return null;
 	}
-
 }

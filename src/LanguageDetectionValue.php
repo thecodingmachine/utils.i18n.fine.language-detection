@@ -12,7 +12,6 @@ use Mouf\Utils\Value\ValueInterface;
  * Turns a languageDetection into a valueInterface
  * 
  * @author Marc TEYSSIER
- * @Component
  */
 class LanguageDetectionValue implements ValueInterface {
 	

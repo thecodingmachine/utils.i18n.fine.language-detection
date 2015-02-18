@@ -12,7 +12,6 @@ use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
  * Use to force the language code for domains
  * 
  * @author Marc TEYSSIER
- * @Component
  */
 class DomainLanguageDetection implements LanguageDetectionInterface {
 	

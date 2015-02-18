@@ -3,7 +3,6 @@ namespace Mouf\Utils\I18n\Fine\Language;
 
 use Mouf\Installer\PackageInstallerInterface;
 use Mouf\MoufManager;
-use Mouf\Actions\InstallUtils;
 
 /**
  * A logger class that writes messages into the php error_log.

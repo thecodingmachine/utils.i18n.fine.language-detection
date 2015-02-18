@@ -15,7 +15,6 @@ use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
  * Use the setLanguage method to set the language it will return.
  * 
  * @author Marc TEYSSIER
- * @Component
  */
 class SessionLanguageDetection implements LanguageDetectionInterface {
 	
@@ -23,10 +22,9 @@ class SessionLanguageDetection implements LanguageDetectionInterface {
 	 * The language that will be returned.
 	 * 
 	 * @Property
-	 * @Compulsory
 	 * @var string|null
 	 */
-	public $language = null;
+	private $language = null;
 	
 	/**
 	 * Returns the language to use.
@@ -47,5 +45,3 @@ class SessionLanguageDetection implements LanguageDetectionInterface {
 		$_SESSION['_fine_I18n_language'] = $language;
 	}
 }
-
-?>

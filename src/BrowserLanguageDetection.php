@@ -12,7 +12,6 @@ use \Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
  * Detect the browser language
  * 
  * @author Marc TEYSSIER
- * @Component
  */
 class BrowserLanguageDetection implements LanguageDetectionInterface {
 	

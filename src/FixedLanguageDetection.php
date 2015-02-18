@@ -14,7 +14,6 @@ use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
  * language. It can be use to make a default language
  * 
  * @author Marc TEYSSIER
- * @Component
  */
 class FixedLanguageDetection implements LanguageDetectionInterface {
 	
@@ -22,7 +21,6 @@ class FixedLanguageDetection implements LanguageDetectionInterface {
 	 * The language that will be returned.
 	 * 
 	 * @Property
-	 * @Compulsory
 	 * @var string
 	 */
 	private $language = "en";
@@ -46,5 +44,3 @@ class FixedLanguageDetection implements LanguageDetectionInterface {
 		$this->language = $language;
 	}
 }
-
-?>
