@@ -61,7 +61,7 @@ class BrowserLanguageDetection implements LanguageDetectionInterface {
 	
 	/**
 	 * Get the language browser data
-	 * @param unknown $lang
+	 * @param string $lang
 	 * @return array<string, string>
 	 */
 	private function extractDataOfLanguage($lang) {
