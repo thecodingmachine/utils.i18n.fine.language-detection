@@ -1,6 +1,8 @@
 Internationalisation with FINE
 ==============================
-![crutinizer](https://scrutinizer-ci.com/g/thecodingmachine/utils.i18n.fine.language-detection/badges/quality-score.png?b=4.0)
+![Scrutinizer](https://scrutinizer-ci.com/g/thecodingmachine/utils.i18n.fine.language-detection/badges/quality-score.png?b=4.0)
+
+If you are not familiar with Fine, you should stop reading **right now**! Please [get started with the main presentation](http://mouf-php.com/packages/mouf/utils.i18n.fine.translation-interface/README.md).
 
 Language detection is a PHP internationalisation package, it depends of translation-interface package.
 This package contains many class to return the selected language for internationalisation.
@@ -48,7 +50,15 @@ As explained above, Fine is a package of the Mouf framework. Mouf allows you (am
 To install the dependency, run
 	php composer.phar install
 
+After this you can [create an instance](doc/install.md)
+
 Language format
 ---------------
 
 The language format is on 2 letters. If the language is not found this return null.
+
+Implement your own language detection
+-------------------------------------
+
+Please read this [documentation](doc/create_class.md) or the [translation interface package](https://mouf-php.com/packages/mouf/utils.i18n.fine.translation-interface/doc/implementation.md)
+

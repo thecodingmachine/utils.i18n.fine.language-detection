@@ -37,7 +37,16 @@
 		                "class": "Mouf\\Utils\\I18n\\Fine\\Language\\FineLanguageInstaller",
 		                "description": "This installer will create a default language detection of a cascading detector and it set a fix language en by default"
 	                }
-	    	]
+	    	],
+	    	"doc" : [{
+                    "title" : "Installation",
+                    "url" : "doc/install.md"
+                },
+                {
+                    "title" : "Create your own detection",
+                    "url" : "doc/create_class.md"
+                }
+            ]
 	    }
 	}
 }
