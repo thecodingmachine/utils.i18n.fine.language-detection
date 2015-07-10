@@ -21,10 +21,18 @@ class FixedLanguageDetection implements LanguageDetectionInterface
     /**
      * The language that will be returned.
      *
-     * @Property
      * @var string
      */
-    private $language = "en";
+    private $language;
+
+    /**
+     * @param string $language The language that will be returned.
+     */
+    public function __construct($language = "en")
+    {
+        $this->language = $language;
+    }
+
 
     /**
      * Returns the language to use.
