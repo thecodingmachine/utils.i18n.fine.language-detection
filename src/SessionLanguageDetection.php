@@ -23,10 +23,13 @@ class SessionLanguageDetection implements LanguageDetectionInterface
      * Returns the language to use.
      *
      * @see \Mouf\Utils\I18n\Fine\LanguageDetectionInterface::getLanguage()
-     * @return string
+     * @return string|null
      */
     public function getLanguage()
     {
+        if (!isset($_SESSION['_fine_I18n_language'])){
+            return null;
+        }
         return $_SESSION['_fine_I18n_language'];
     }
 
