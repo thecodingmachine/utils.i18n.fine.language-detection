@@ -7,6 +7,7 @@
 namespace Mouf\Utils\I18n\Fine\Language;
 
 use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
+use Mouf\Utils\Session\SessionManager\SessionManagerInterface;
 
 /**
  * Use fixed language detection if you want to always use the same language in your application.
@@ -18,6 +19,15 @@ use Mouf\Utils\I18n\Fine\LanguageDetectionInterface;
  */
 class SessionLanguageDetection implements LanguageDetectionInterface
 {
+    /**
+     * @var SessionManagerInterface
+     */
+    private $sessionManager;
+
+    public function __construct(SessionManagerInterface $sessionManager = null)
+    {
+        $this->sessionManager = $sessionManager;
+    }
 
     /**
      * Returns the language to use.
@@ -27,6 +37,9 @@ class SessionLanguageDetection implements LanguageDetectionInterface
      */
     public function getLanguage()
     {
+        if ($this->sessionManager) {
+            $this->sessionManager->start();
+        }
         if (!isset($_SESSION['_fine_I18n_language'])){
             return null;
         }
@@ -40,6 +53,9 @@ class SessionLanguageDetection implements LanguageDetectionInterface
      */
     public function setLanguage($language)
     {
+        if ($this->sessionManager) {
+            $this->sessionManager->start();
+        }
         $_SESSION['_fine_I18n_language'] = $language;
     }
 }
