@@ -21,7 +21,8 @@
     "require": {
     	"php": ">=5.4.0",
     	"mouf/mouf-installer": "~2.0",
-    	"mouf/utils.i18n.fine.translation-interface": "~4.0"
+    	"mouf/utils.i18n.fine.translation-interface": "~4.0",
+        "mouf/utils.session.session-manager": "^3"
     },
     "autoload": {
         "psr-4": {
